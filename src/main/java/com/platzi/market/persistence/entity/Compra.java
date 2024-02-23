@@ -1,0 +1,82 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.platzi.market.persistence.entity;
+
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * @author mario
+ */
+@Entity
+@Table(name = "compras")
+public class Compra implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_compra")
+    private Integer idCompra;
+    @Column(name = "id_cliente")
+    private String idCliente;
+    @Column(name = "fecha")
+    private LocalDateTime fecha;
+    @Column(name = "medio_pago")
+    private Character medioPago;
+    @Column(name = "comentario")
+    private String comentario;
+    @Column(name = "estado")
+    private Character estado;
+
+    public Integer getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(Integer idCompra) {
+        this.idCompra = idCompra;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public Character getMedioPago() {
+        return medioPago;
+    }
+
+    public void setMedioPago(Character medioPago) {
+        this.medioPago = medioPago;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public Character getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Character estado) {
+        this.estado = estado;
+    }
+}
