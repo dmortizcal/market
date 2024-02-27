@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  *
@@ -33,6 +34,8 @@ public class Cliente implements Serializable {
     private String direccion;
     @Column(name = "correo_electronico")
     private String correoElectronico;
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
     public String getId() {
         return id;
@@ -80,5 +83,13 @@ public class Cliente implements Serializable {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
     }
 }
